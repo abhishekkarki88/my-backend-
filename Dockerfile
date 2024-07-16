@@ -13,8 +13,8 @@ RUN npm install
 # Bundle app source
 COPY . .
 
-# Expose port 3001
-EXPOSE 3001
+# Expose port 3006
+EXPOSE 3006
 
 # Start the server
 CMD ["node", "server.js"]

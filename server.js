@@ -4,7 +4,7 @@ const mysql = require('mysql');
 const cors = require('cors');
 
 const app = express();
-const port = 3001;
+const port = 3006;
 
 // Middleware
 app.use(bodyParser.json());
@@ -12,11 +12,11 @@ app.use(cors());
 
 // MySQL connection
 const db = mysql.createConnection({
-  host: '',
+  host: 'localhost',
   port: '3306',
-  user: 'newusername',
+  user: 'abhishek',
   password: 'password',
-  database: 'your_database'
+  database: 'bdatabase'
 });
 
 db.connect(err => {
@@ -35,7 +35,7 @@ app.post('/api/submit', (req, res) => {
     return res.status(400).send('Name is required');
   }
 
-  const query = 'INSERT INTO your_table (name) VALUES (?)';
+  const query = 'INSERT INTO mero_table (name) VALUES (?)';
   db.query(query, [name], (err, result) => {
     if (err) {
       console.error('Error inserting data:', err);
